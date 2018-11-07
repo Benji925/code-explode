@@ -26,7 +26,7 @@ public static void printSchedule(String day, String[] mon, String[] tue, String[
       }
   } else if (day==sun){
       for(int i=0; i<sun.length; i++){
-        System.out.printf("%f%n",tue[i]);
+        System.out.printf("%f%n",sun[i]);
       }
   }
 }
