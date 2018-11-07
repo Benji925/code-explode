@@ -19,10 +19,12 @@ public class GetInput {
             while (moreDays) {
                 System.out.println("Please enter the day of the week this class meets:");
                 daysOfWeek[j] = TextIO.getWord();
+                System.out.println("What time does the class meet?");
                 System.out.println("Does the class meet another day?");
                 moreDays = TextIO.getBoolean();
                 j++;
             }
+
             System.out.println("Do you have another class?");
             keepGoing = TextIO.getBoolean();
             i++;
