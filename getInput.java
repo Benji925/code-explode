@@ -1,21 +1,36 @@
-public static void getInput(){
-  System.out.println("Hello User! This is the Code Explode Daily Planning App, or CEDPA");
-  boolean keepGoing = true;
-  int i = 0;
-  while(keepGoing){
-    if (i == 0){
-      System.out.println("Please input your first class. Below is an example of the format you should follow.");
-      System.out.println("CLA123A M W Th 5:00-6:00");
-    } else {
-      System.out.println("Please input your next class, following the same format as before.");
-    }
-    String className = TextIO.getWord();
-    boolean space = false;
-    char nextChar = TextIO.getChar();
+import java.util.Arrays;
 
-    while (nextChar != ' ');{
-      nextChar=
+public class GetInput {
+    public static String[] getInput() {
+        System.out.println("Hello User! This is the Code Explode Daily Planning App, or CEDPA");
+        boolean keepGoing = true;
+        int i = 0;
+        String[] className = new String[10];
+        while (keepGoing) {
+            if (i == 0) {
+                System.out.println("Please input the name of your first class.");
+            } else {
+                System.out.println("Please input your next class");
+            }
+            className[i] = TextIO.getWord();
+            boolean moreDays = true;
+            String[] daysOfWeek = new String[7];
+            int j = 0;
+            while (moreDays) {
+                System.out.println("Please enter the day of the week this class meets:");
+                daysOfWeek[j] = TextIO.getWord();
+                System.out.println("Does the class meet another day?");
+                moreDays = TextIO.getBoolean();
+                j++;
+            }
+            System.out.println("Do you have another class?");
+            keepGoing = TextIO.getBoolean();
+            i++;
+        }
+        return className;
     }
 
-  }
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(getInput()));
+    }
 }
