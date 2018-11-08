@@ -14,7 +14,7 @@ public class GetInput {
             double duration = durationOfClass();
             int start = startTime();
             System.out.println("Do you have another class?");
-            keepGoing = TextIO.getBoolean();
+            keepGoing = TextIO.getlnBoolean();
             i++;
         }
     }
@@ -28,26 +28,38 @@ public class GetInput {
     public static boolean[] days (boolean[] daysOfWeek){
         boolean anotherDay = true;
         while(anotherDay){
-            System.out.println("What day does the class meet? (enter the three letter abbreviation, ex thu.)");
-            String day = TextIO.getWord();
-            switch (day) {
-                case "sun":
-                    daysOfWeek[0]=true; break;
-                case "mon":
-                    daysOfWeek[1]= true; break;
-                case "tue":
-                    daysOfWeek[2]= true; break;
-                case "wed":
-                    daysOfWeek[3]= true; break;
-                case "thu":
-                    daysOfWeek[4]= true; break;
-                case "fri":
-                    daysOfWeek[5]= true; break;
-                case "sat":
-                    daysOfWeek[6]= true; break;
-                default:
-                    System.out.println("You made an error in entering the day (try mon, tue, wed...)");
+            boolean right = false;
+            while(!right){
+                System.out.println("What day does the class meet? (enter the three letter abbreviation, ex thu.)");
+                String day = TextIO.getWord();
+                switch (day) {
+                    case "sun":
+                        daysOfWeek[0]=true;
+                        right = true; break;
+                    case "mon":
+                        daysOfWeek[1]= true;
+                        right = true; break;
+                    case "tue":
+                        daysOfWeek[2]= true;
+                        right = true; break;
+                    case "wed":
+                        daysOfWeek[3]= true;
+                        right = true; break;
+                    case "thu":
+                        daysOfWeek[4]= true;
+                        right = true; break;
+                    case "fri":
+                        daysOfWeek[5]= true;
+                        right = true; break;
+                    case "sat":
+                        daysOfWeek[6]= true;
+                        right = true; break;
+                    default:
+                        System.out.println("You made an error in entering the day (try mon, tue, wed...)");
+                        right = false;
+                }
             }
+
             System.out.println("Does the class meet another day of the week?");
             anotherDay = TextIO.getBoolean();
         }
