@@ -9,15 +9,14 @@
 
         SimpleDateFormat dateFormatter = new SimpleDateFormat("E, y-M-d 'at' h:m:s a z");
         dateFormatter = new SimpleDateFormat("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
-        Date now = new Date();
+        CurrentDate now = new CurrentDate();
         dateFormatter = new SimpleDateFormat("EEEE, MMMM d, yyyy");
         System.out.println("Today is " + dateFormatter.format(now));
         */
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Date {
+public class CurrentDate {
   public static void main(String[] args){
 
         Date now = new Date();
