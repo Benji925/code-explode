@@ -5,43 +5,60 @@ public class GetInput {
     public static void main(String[] args) {
         System.out.println("Hello User! This is the Code Explode Daily Planning App, or CEDPA");
         boolean keepGoing = true;
-        String[] classes = new String[10];
+        String[] classes = new String[25];
+        String[] timeStart = new String[25];
+        String[] Sunday = new String [25];
+        String[] Monday = new String[25];
+        String[] Tuesday = new String [25];
+        String[] Wednesday = new String[25];
+        String[] Thursday = new String [25];
+        String[] Friday = new String[25];
+        String[] Saturday = new String [25];
         int i = 0;
         boolean[] daysOfWeek = new boolean[7];
         while (keepGoing) {
             classes[i] = getClasses();
+
+            timeStart[i] = startTime();
             boolean meetAgain = true;
             while (meetAgain) {
                 String day = AskDay();
                 if (day.equals("sun")) {
-                    String[] Sunday = PutInSunday(classes, i);
-                    meetAgain = AnotherDay();
+                    Sunday[i] = PutInSunday(classes, i);
+                    Sunday[i+10] = PutInSunday(timeStart, i+10);
                 } else if (day.equals("mon")) {
-                    String[] Monday = PutInMonday(classes, i);
-                    meetAgain = AnotherDay();
+                    Monday[i] = PutInMonday(classes, i);
+                    Monday[i+10] = PutInMonday(timeStart, i+10);
                 } else if (day.equals("tue")) {
-                    String[] Tuesday = PutInTuesday(classes, i);
-                    meetAgain = AnotherDay();
+                    Tuesday[i] = PutInTuesday(classes, i);
+                    Tuesday[i+10] = PutInTuesday(timeStart, i+10);
                 } else if (day.equals("wed")) {
-                    String[] Wednesday = PutInWednesday(classes, i);
-                    meetAgain = AnotherDay();
+                    Wednesday[i] = PutInWednesday(classes, i);
+                    Wednesday[i+10] = PutInWednesday(timeStart, i+10);
                 } else if (day.equals("thu")) {
-                    String[] Thursday = PutInThursday(classes, i);
-                    meetAgain = AnotherDay();
+                    Thursday[i] = PutInThursday(classes, i);
+                    Thursday[i+10] = PutInThursday(timeStart, i+10);
                 } else if (day.equals("fri")) {
-                    String[] Friday = PutInFriday(classes, i);
-                    meetAgain = AnotherDay();
+                    Friday[i] = PutInFriday(classes, i);
+                    Friday[i+10] = PutInFriday(timeStart, i+10);
                 } else if (day.equals("sat")) {
-                    String[] Saturday = PutInSaturday(classes, i);
-                    meetAgain = AnotherDay();
+                    Saturday[i] = PutInSaturday(classes, i);
+                    Saturday[i+10] = PutInSaturday(timeStart, i+10);
                 }
+                meetAgain = AnotherDay();
             }
-            double duration = durationOfClass();
-            int start = startTime();
+
             System.out.println("Do you have another class?");
             keepGoing = TextIO.getlnBoolean();
             i++;
         }
+        System.out.println(Arrays.toString(Sunday));
+        System.out.println(Arrays.toString(Monday));
+        System.out.println(Arrays.toString(Tuesday));
+        System.out.println(Arrays.toString(Wednesday));
+        System.out.println(Arrays.toString(Thursday));
+        System.out.println(Arrays.toString(Friday));
+        System.out.println(Arrays.toString(Saturday));
     }
 
     public static String getClasses() {
@@ -73,61 +90,51 @@ public class GetInput {
         return meetAgain;
     }
 
-    public static String[] PutInSunday(String[] classes, int i) {
-        String[] Sunday = new String[10];
+    public static String PutInSunday(String[] classes, int i) {
+        String[] Sunday = new String[25];
         Sunday[i] = classes[i];
-        return Sunday;
+        return Sunday[i];
     }
 
-    public static String[] PutInMonday(String[] classes, int i) {
-        String[] Monday = new String[10];
+    public static String PutInMonday(String[] classes, int i) {
+        String[] Monday = new String[25];
         Monday[i] = classes[i];
-        return Monday;
+        return Monday[i];
     }
 
-    public static String[] PutInTuesday(String[] classes, int i) {
-        String[] Tuesday = new String[10];
+    public static String PutInTuesday(String[] classes, int i) {
+        String[] Tuesday = new String[25];
         Tuesday[i] = classes[i];
-        return Tuesday;
+        return Tuesday[i];
     }
 
-    public static String[] PutInWednesday(String[] classes, int i) {
-        String[] Wednesday = new String[10];
+    public static String PutInWednesday(String[] classes, int i) {
+        String[] Wednesday = new String[25];
         Wednesday[i] = classes[i];
-        return Wednesday;
+        return Wednesday[i];
     }
 
-    public static String[] PutInThursday(String[] classes, int i) {
-        String[] Thursday = new String[10];
+    public static String PutInThursday(String[] classes, int i) {
+        String[] Thursday = new String[25];
         Thursday[i] = classes[i];
-        return Thursday;
+        return Thursday[i];
     }
 
-    public static String[] PutInFriday(String[] classes, int i) {
-        String[] Friday = new String[10];
+    public static String PutInFriday(String[] classes, int i) {
+        String[] Friday = new String[25];
         Friday[i] = classes[i];
-        return Friday;
+        return Friday[i];
     }
 
-    public static String[] PutInSaturday(String[] classes, int i) {
-        String[] Saturday = new String[10];
+    public static String PutInSaturday(String[] classes, int i) {
+        String[] Saturday = new String[25];
         Saturday[i] = classes[i];
-        return Saturday;
+        return Saturday[i];
     }
 
-    public static double durationOfClass() {
-        System.out.println("How many hours does the class last?");
-        double duration = TextIO.getDouble();
-        return duration;
-    }
-
-    public static int startTime() {
+    public static String startTime() {
         System.out.println("What time does the class start?");
-        int startHour = TextIO.getInt();
-        TextIO.getChar();
-        int startMinute = TextIO.getInt();
-        int start = (startHour * 100) + startMinute;
+        String start = TextIO.getlnString();
         return start;
     }
-
 }
