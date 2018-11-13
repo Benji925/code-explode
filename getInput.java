@@ -17,33 +17,24 @@ public class GetInput {
         int i = 0;
         boolean[] daysOfWeek = new boolean[7];
         while (keepGoing) {
-            classes[i] = getClasses();
-
-            timeStart[i] = startTime();
+            classes[i] = getClasses() + " " + startTime();
             boolean meetAgain = true;
             while (meetAgain) {
                 String day = AskDay();
                 if (day.equals("sun")) {
                     Sunday[i] = PutInSunday(classes, i);
-                    Sunday[i+10] = PutInSunday(timeStart, i+10);
                 } else if (day.equals("mon")) {
                     Monday[i] = PutInMonday(classes, i);
-                    Monday[i+10] = PutInMonday(timeStart, i+10);
                 } else if (day.equals("tue")) {
                     Tuesday[i] = PutInTuesday(classes, i);
-                    Tuesday[i+10] = PutInTuesday(timeStart, i+10);
                 } else if (day.equals("wed")) {
                     Wednesday[i] = PutInWednesday(classes, i);
-                    Wednesday[i+10] = PutInWednesday(timeStart, i+10);
                 } else if (day.equals("thu")) {
                     Thursday[i] = PutInThursday(classes, i);
-                    Thursday[i+10] = PutInThursday(timeStart, i+10);
                 } else if (day.equals("fri")) {
                     Friday[i] = PutInFriday(classes, i);
-                    Friday[i+10] = PutInFriday(timeStart, i+10);
                 } else if (day.equals("sat")) {
                     Saturday[i] = PutInSaturday(classes, i);
-                    Saturday[i+10] = PutInSaturday(timeStart, i+10);
                 }
                 meetAgain = AnotherDay();
             }
