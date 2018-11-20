@@ -19,8 +19,10 @@ public class TwoArrayGetInput {
           System.out.println("Please input your next class");
         }
         classAndDay[i][0] = TextIO.getWord();
+        System.out.println("What time does you class start?");
+        classAndDay[i][1] = TextIO.getWord();
         boolean moreDays = true;
-        int j = 1;
+        int j = 2;
           while (moreDays) {
             System.out.println("Please enter the day of the week this class meets:");
             classAndDay[i][j] = TextIO.getWord();
