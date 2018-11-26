@@ -1,2 +1,2 @@
-classes: [Spanish, Bollywood, null, null, null, null, null, null, null, null]
-days: [mon, wed, thu, thu, null, null, null]
+classes: [CoSi, creative, null, null, null, null, null, null, null, null]
+days: [pedagogy, Wednesday, thursday, null, null, null, null]
