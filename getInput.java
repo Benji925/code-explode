@@ -31,16 +31,20 @@ public class GetInput {
         }
         String classes=Arrays.toString(className);
         String days = Arrays.toString(daysOfWeek);
-        writeFile(classes, days);
+        writeFile(className, daysOfWeek);
         return className;
 }
-    public static void writeFile(String classes, String days){
+    public static void writeFile(String[] classes, String[] days){
       try {
         FileWriter fw = new FileWriter("UserInfo.txt");
         PrintWriter pw = new PrintWriter(fw);
-        pw.println("classes: "+classes);
-        pw.println("days: "+days);
-        pw.close();
+        for(int i=0; i<10; i++) {
+          pw.printf("%s %n", classes[i]);
+        }
+        for(int i=0; i<7; i++) {
+          pw.printf("%s %n", days[i]);
+        }
+          pw.close();
 
       } catch(IOException e){
         System.out.println("error");
