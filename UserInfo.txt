@@ -1,2 +1,10 @@
-classes: [CoSi, creative, null, null, null, null, null, null, null, null]
-days: [pedagogy, Wednesday, thursday, null, null, null, null]
+math, 10, monday,tuesday,thursday, 
+school, 3, friday,tuesday, 
+
+
+
+
+
+
+
+

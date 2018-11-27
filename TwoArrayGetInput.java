@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.io.*;
 import java.lang.System.*;
 
-public class TwoArrayGetInput2 {
+public class TwoArrayGetInput {
   public static void main(String[] args) {
     String[][] classAndDay = new String[10][7];
     getInput(classAndDay);
