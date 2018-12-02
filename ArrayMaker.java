@@ -8,7 +8,7 @@ public class ArrayMaker{
   public static void main(String[] args){
     Scanner userInput = new Scanner(System.in);
     File fileName = new File("classes.txt");
-    String [][] schedule= new String[5][3];
+    String [][] schedule= new String[20][3];
 
 
     try {
