@@ -15,12 +15,12 @@ public class ArrayMaker{
       Scanner fileReader = new Scanner(fileName);
       for(int i=0;i<schedule.length;i++){
         while(fileReader.hasNext()){
-          String day = fileReader.next();
-          schedule[i][0]=day;
+          String class1 = fileReader.next();
+          schedule[i][0]=class1;
           String time = fileReader.next();
           schedule[i][1]=time;
-          String class1= fileReader.next();
-          schedule[i][2]=class1;
+          String day= fileReader.next();
+          schedule[i][2]=day;
           System.out.println(Arrays.toString(schedule[i]));
         }
 
@@ -30,11 +30,12 @@ public class ArrayMaker{
     catch(FileNotFoundException e){
       System.out.println("Didn't find the file. Go to the library.");
     }
-    for(int count=0;count<schedule.length;count++){
+    /*for(int count=0;count<schedule.length;count++){
       Calendar calendar = Calendar.getInstance();
-      int current day = calendar.get(Calendar.DAY_OF_WEEK); 
+      int currentday = calendar.get(Calendar.DAY_OF_WEEK);
+      System.out.println(currentday);
 
-    }
+    }*/
 
 
     }
