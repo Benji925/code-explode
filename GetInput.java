@@ -75,7 +75,7 @@ public class GetInput {
 
     public static void WriteToFile(String classDayTime){
         try {
-            PrintWriter writer = new PrintWriter("classSchedule.txt", "UTF-8");
+            PrintWriter writer = new PrintWriter("classes.txt", "UTF-8");
             writer.println(classDayTime);
             writer.close();
         }catch (Exception e) {
