@@ -1,5 +1,6 @@
 import java.time.DayOfWeek;
 import java.util.Arrays;
+import java.io.PrintWriter;
 public class GetInput {
     public static void main(String[] args) {
         //This introduces the app
@@ -8,7 +9,6 @@ public class GetInput {
         String[] classes = new String[25];
         String[] timeStart = new String[25];
         int i = 0;
-        String[] className = new String[10];
         while (keepGoing) {
             classes[i] = getClasses() + " " + startTime();
             boolean meetAgain = true;
@@ -30,25 +30,9 @@ public class GetInput {
                     classes[i] = classes[i] + " sat";
                 }
                 meetAgain = AnotherDay();
-                if (i == 0) {
-                    System.out.println("Please input the name of your first class.");
-                } else {
-                    System.out.println("Please input your next class");
-                }
-                className[i] = TextIO.getWord();
-                boolean moreDays = true;
-                String[] daysOfWeek = new String[7];
-                int j = 0;
-                while (moreDays) {
-                    System.out.println("Please enter the day of the week this class meets:");
-                    daysOfWeek[j] = TextIO.getWord();
-                    System.out.println("Does the class meet another day?");
-                    moreDays = TextIO.getBoolean();
-                    j++;
-                }
+                WriteToFile(classes[i]);
                 System.out.println("Do you have another class?");
                 keepGoing = TextIO.getlnBoolean();
-                keepGoing = TextIO.getBoolean();
                 i++;
             }
         }
@@ -87,5 +71,15 @@ public class GetInput {
         System.out.println("What time does the class start?");
         String start = TextIO.getlnString();
         return start;
+    }
+
+    public static void WriteToFile(String classDayTime){
+        try {
+            PrintWriter writer = new PrintWriter("classSchedule.txt", "UTF-8");
+            writer.println(classDayTime);
+            writer.close();
+        }catch (Exception e) {
+            System.out.println("Error in WriteToFile:" + e);
+        }
     }
 }
