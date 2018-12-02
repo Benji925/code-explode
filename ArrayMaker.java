@@ -30,6 +30,12 @@ public class ArrayMaker{
     catch(FileNotFoundException e){
       System.out.println("Didn't find the file. Go to the library.");
     }
+    for(int count=0;count<schedule.length;count++){
+      Calendar calendar = Calendar.getInstance();
+      int current day = calendar.get(Calendar.DAY_OF_WEEK); 
+
+    }
+
 
     }
 }
