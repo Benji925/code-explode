@@ -14,13 +14,13 @@
         System.out.println("Today is " + dateFormatter.format(now));
         */
 
-import java.util.Date;
+import java.util.Calendar;
 
 public class CurrentDate {
   public static void main(String[] args){
-
-        Date now = new Date();
-        System.out.println("Today is " + now);
+      int current;
+      current = Calendar.DAY_OF_WEEK;
+      System.out.println("Today is " + current);
 
      }
   }

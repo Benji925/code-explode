@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
+import java.util.Calendar;
 
 
 public class ArrayMaker{
@@ -30,12 +31,9 @@ public class ArrayMaker{
     catch(FileNotFoundException e){
       System.out.println("Didn't find the file. Go to the library.");
     }
-    for(int count=0;count<schedule.length;count++){
-      Calendar calendar = Calendar.getInstance();
-      int current day = calendar.get(Calendar.DAY_OF_WEEK); 
+    int today= Calendar.DAY_OF_WEEK;
+    for(int i=0; i<schedule.length; i++){
 
     }
 
-
-    }
 }
