@@ -22,7 +22,7 @@ public class ArrayMaker{
           schedule[i][1]=time;
           String class1= fileReader.next();
           schedule[i][2]=class1;
-          System.out.println(Arrays.toString(schedule[i]));
+          System.out.println(Arrays.toString(schedule));
         }
 
       }
@@ -31,9 +31,39 @@ public class ArrayMaker{
     catch(FileNotFoundException e){
       System.out.println("Didn't find the file. Go to the library.");
     }
-    int today= Calendar.DAY_OF_WEEK;
+    int todaynum= Calendar.DAY_OF_WEEK;
+    String date=whatday(todaynum);
     for(int i=0; i<schedule.length; i++){
-
+      String classdate=schedule[i][0];
+      // if(classdate.equals(date)){
+      //   System.out.println(Arrays.toString(schedule[i]));
+      // }
+      System.out.println(classdate);
+      // System.out.println(date);
     }
-
+  }
+  public static String whatday(int day){
+    if(day==1){
+      return "Mon";
+    }
+    if(day==2){
+      return "Tue";
+    }
+    if(day==3){
+      return "Wed";
+    }
+    if(day==4){
+      return "Thu";
+    }
+    if(day==5){
+      return "Fri";
+    }
+    if(day==6){
+      return "Sat";
+    }
+    if(day==7){
+      return "Sun";
+    }
+    return "error!";
+  }
 }
