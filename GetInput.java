@@ -3,9 +3,6 @@ import java.util.Arrays;
 import java.io.PrintWriter;
 public class GetInput {
     public static void main(String[] args) {
-      String zipcode = "01730";
-      Weather w = APIdemo.getWeather(zipcode);//getWeatherByZip(zipcode);
-      printWeather(w, zipcode);
         //This introduces the app
         System.out.println("Hello User! This is the Code Explode Daily Planning App, or CEDPA");
         boolean keepGoing = true;
@@ -39,18 +36,18 @@ public class GetInput {
                 i++;
             }
         }
+        getWeatherByZip();
     }
 
-    public static Weather getWeatherByZip(String zipcode){
-      return APIdemo.getWeather(zipcode);
-    }
-
-    public static void printWeather(Weather w, String zipcode) {
-      System.out.printf("Here is the weather info for %s%n%n",zipcode);
+    public static void getWeatherByZip(){
+      System.out.println("please enter your zipcode to see weather");
+      String zipcode = TextIO.getln();
+      Weather w = APIdemo.getWeather(zipcode);//getWeatherByZip(zipcode);
+      System.out.printf("Here is the weather info for %s%n",zipcode);
       System.out.printf("The current temperature is %.1f F ",APIdemo.k2f(w.main.temp));
       System.out.printf(" with %s %n",w.weather.get(0).description);
-      System.out.printf(" and a wind speed of %.1f mph ", w.wind.speed);
-      System.out.printf(" from direction %.1f degrees%n%n", w.wind.deg);
+      // System.out.printf(" and a wind speed of %.1f mph ", w.wind.speed);
+      // System.out.printf(" from direction %.1f degrees%n%n", w.wind.deg);
     }
 
     public static String getClasses() {
