@@ -22,8 +22,8 @@ class WeatherJson {
   String main;
 }
 
-/*
-Here is the full weather JSON object
+
+/*Here is the full weather JSON object
 from https://openweathermap.org/current
 We are only using a part of it ... main, wind, and weather
 
@@ -69,6 +69,4 @@ We are only using a part of it ... main, wind, and weather
   "id":2643743,
   "name":"London",
   "cod":200
-}
-
-*/
+}*/

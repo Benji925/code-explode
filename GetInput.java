@@ -36,10 +36,10 @@ public class GetInput {
                 i++;
             }
         }
-        getWeatherByZip();
+        //getWeatherByZip();
     }
 
-    public static void getWeatherByZip(){
+/*    public static void getWeatherByZip(){
       System.out.println("please enter your zipcode to see weather");
       String zipcode = TextIO.getln();
       Weather w = APIdemo.getWeather(zipcode);//getWeatherByZip(zipcode);
@@ -48,7 +48,7 @@ public class GetInput {
       System.out.printf(" with %s %n",w.weather.get(0).description);
       // System.out.printf(" and a wind speed of %.1f mph ", w.wind.speed);
       // System.out.printf(" from direction %.1f degrees%n%n", w.wind.deg);
-    }
+    }*/
 
     public static String getClasses() {
         System.out.println("What is the name of your class?");
