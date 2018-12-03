@@ -17,19 +17,17 @@ public class ArrayMaker{
       while(fileReader.hasNext()){
         if(line1 != null && !line1.isEmpty()){
           counter++;
-          System.out.println(counter);
         }
         else {
           continue1=false;
         }
         line1=fileReader.nextLine();
       }
-      System.out.println(counter);
         fileReader.close();
         }
 
       catch(FileNotFoundException e){
-        System.out.println("Didn't find the file. Go to the library.");
+        System.out.println("Didn't find the file. Please try again.");
       }
 
     String[][] schedule= new String[counter][3];
@@ -37,7 +35,7 @@ public class ArrayMaker{
     try {
       Scanner fileReader = new Scanner(fileName);
 
-        for(int i=0;i<schedule.length-1;i++){
+        for(int i=0;i<schedule.length;i++){
           String day = fileReader.next();
           schedule[i][0]=day;
           String time = fileReader.next();
@@ -46,13 +44,12 @@ public class ArrayMaker{
           schedule[i][2]=class1;
 
         }
-        System.out.println(Arrays.deepToString(schedule));
         fileReader.close();
       }
 
 
     catch(FileNotFoundException e){
-      System.out.println("Didn't find the file. Go to the library.");
+      System.out.println("Didn't find the file. Please try again.");
     }
     int todaynum= Calendar.DAY_OF_WEEK;
     String date=whatday(todaynum);
@@ -61,7 +58,6 @@ public class ArrayMaker{
       if(classdate.equals(date)){
         System.out.println(Arrays.toString(schedule[j]));
       }
-      System.out.println(classdate);
     }
   }
 
