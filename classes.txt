@@ -1,7 +1,1 @@
-Mon 1:00 math
-tue 3:00 school
-wed 5:00 house
-wed 7:00 nothanks
-Thu 8:00 whatever
-Sun 9:00 pleasework
-Sun 11:00 fortheloveofgodplease
+art 3 tue thu

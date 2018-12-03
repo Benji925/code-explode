@@ -1,10 +1,12 @@
 import java.time.DayOfWeek;
 import java.util.Arrays;
 import java.io.PrintWriter;
+import java.util.Scanner;
 public class GetInput {
     public static void main(String[] args) {
         //This introduces the app
         System.out.println("Hello User! This is the Code Explode Daily Planning App, or CEDPA");
+        Scanner reader = new Scanner(System.in);
         boolean keepGoing = true;
         String[] classes = new String[25];
         String[] timeStart = new String[25];
@@ -31,37 +33,33 @@ public class GetInput {
                 }
                 meetAgain = AnotherDay();
                 WriteToFile(classes[i]);
-                System.out.println("Do you have another class?");
-                keepGoing = TextIO.getlnBoolean();
-                i++;
-            }
-        }
-        getWeatherByZip();
-    }
 
-    public static void getWeatherByZip(){
-      System.out.println("please enter your zipcode to see weather");
-      String zipcode = TextIO.getln();
-      Weather w = APIdemo.getWeather(zipcode);//getWeatherByZip(zipcode);
-      System.out.printf("Here is the weather info for %s%n",zipcode);
-      System.out.printf("The current temperature is %.1f F ",APIdemo.k2f(w.main.temp));
-      System.out.printf(" with %s %n",w.weather.get(0).description);
-      // System.out.printf(" and a wind speed of %.1f mph ", w.wind.speed);
-      // System.out.printf(" from direction %.1f degrees%n%n", w.wind.deg);
+            }
+            System.out.println("Do you have another class?");
+            String anotherClass = reader.nextLine();
+            if (anotherClass.equals("yes")) {
+                keepGoing = true;
+            }else {
+                keepGoing = false;
+            }
+            i++;
+        }
     }
 
     public static String getClasses() {
+        Scanner reader = new Scanner(System.in);
         System.out.println("What is the name of your class?");
-        String schoolClass = TextIO.getlnString();
+        String schoolClass = reader.nextLine();
         return schoolClass;
     }
 
     public static String AskDay() {
+        Scanner reader = new Scanner(System.in);
         boolean right = false;
         String day = " ";
         while (!right) {
             System.out.println("What day does the class meet? (enter the three letter abbreviation, ex thu.)");
-            String check = TextIO.getWord();
+            String check = reader.next();
             if (check.equals("sun") || check.equals("mon") || check.equals("tue") || check.equals("wed") || check.equals("thu") || check.equals("fri") || check.equals("sat")) {
                 day = check;
                 right = true;
@@ -74,14 +72,22 @@ public class GetInput {
     }
 
     public static boolean AnotherDay() {
+        Scanner reader = new Scanner(System.in);
         System.out.println("Does the class meet another day?");
-        boolean meetAgain = TextIO.getlnBoolean();
-        return meetAgain;
+        String meetAgain = reader.nextLine();
+        boolean returns;
+        if (meetAgain.equals("yes")) {
+            returns = true;
+        }else {
+            returns = false;
+        }
+        return returns;
     }
 
     public static String startTime() {
+        Scanner reader = new Scanner(System.in);
         System.out.println("What time does the class start?");
-        String start = TextIO.getlnString();
+        String start = reader.nextLine();
         return start;
     }
 
@@ -89,6 +95,7 @@ public class GetInput {
         try {
             PrintWriter writer = new PrintWriter("classes.txt", "UTF-8");
             writer.println(classDayTime);
+            writer.println();
             writer.close();
         }catch (Exception e) {
             System.out.println("Error in WriteToFile:" + e);
