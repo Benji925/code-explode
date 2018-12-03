@@ -9,19 +9,20 @@ public class ArrayMaker{
   public static void main(String[] args){
     Scanner userInput = new Scanner(System.in);
     File fileName = new File("classes.txt");
-    int counter=0;
-    boolean continue=true;
+    int counter = (1);
+    boolean continue1 = (true);
     try {
       Scanner fileReader = new Scanner(fileName);
-      While(continue==true){
-        String line=fileReader.NextLine();
-        if(str != null && !str.isEmpty()){
-          continue=false;
-        }
-        else {
+      String line1=fileReader.nextLine();
+      while(fileReader.hasNext()){
+        if(line1 != null && !line1.isEmpty()){
           counter++;
           System.out.println(counter);
         }
+        else {
+          continue1=false;
+        }
+        line1=fileReader.nextLine();
       }
       System.out.println(counter);
         fileReader.close();
@@ -31,11 +32,11 @@ public class ArrayMaker{
         System.out.println("Didn't find the file. Go to the library.");
       }
 
-    String[][] schedule= new String[5][3];
+    String[][] schedule= new String[counter][3];
 
     try {
       Scanner fileReader = new Scanner(fileName);
-      //while(fileReader.hasNext()){
+
         for(int i=0;i<schedule.length-1;i++){
           String day = fileReader.next();
           schedule[i][0]=day;
