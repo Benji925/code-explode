@@ -36,7 +36,7 @@ public class ArrayMaker{
 
     try {
       Scanner fileReader = new Scanner(fileName);
-
+            String[][] schedule=fileReader.nextLine();
         for(int i=0;i<schedule.length;i++){
           String class1= fileReader.next();
           schedule[i][2]=class1;
@@ -47,6 +47,7 @@ public class ArrayMaker{
 
         }
         fileReader.close();
+        System.out.println(Arrays.deepToString(schedule));
       }
 
 
@@ -61,8 +62,6 @@ public class ArrayMaker{
     String date=whatday(todaynum);
     for(int j=0; j<schedule.length; j++){
       String classdate=schedule[j][0];
-      System.out.println(classdate);
-      System.out.println(date);
       if(classdate.equals(date)){
 
         System.out.println(Arrays.toString(schedule[j]));

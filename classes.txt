@@ -1,8 +1,1 @@
-<<<<<<< HEAD
-hallelujah 9:00 mon tue thu
-math 9:00 wed
-science 8:00 mon tue wed thu fri
-=======
-math 12 mon
-Do you have another class?
->>>>>>> e47d99c9c701a5c3b05e9edf92f3c359b613cd09
+[[Ljava.lang.String;@6b71769e
