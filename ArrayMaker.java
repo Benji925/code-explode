@@ -36,18 +36,16 @@ public class ArrayMaker{
 
     try {
       Scanner fileReader = new Scanner(fileName);
-            String[][] schedule=fileReader.nextLine();
+
         for(int i=0;i<schedule.length;i++){
+          String day = fileReader.next();
+          schedule[i][0]=day;
           String class1= fileReader.next();
           schedule[i][2]=class1;
           String time = fileReader.next();
           schedule[i][1]=time;
-          String day = fileReader.next();
-          schedule[i][0]=day;
-
         }
         fileReader.close();
-        System.out.println(Arrays.deepToString(schedule));
       }
 
 
@@ -56,13 +54,13 @@ public class ArrayMaker{
     }
     //find out what day of the week it is and print out the user's
     //schedule for that day only
-
+    System.out.println("Your schedule for today is: ");
     Calendar now = Calendar.getInstance();
     int todaynum= now.get(Calendar.DAY_OF_WEEK);
     String date=whatday(todaynum);
     for(int j=0; j<schedule.length; j++){
       String classdate=schedule[j][0];
-      if(classdate.equals(date)){
+      if(classdate.contains(date)){
 
         System.out.println(Arrays.toString(schedule[j]));
       }

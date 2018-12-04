@@ -1,10 +1,10 @@
 import java.time.DayOfWeek;
 import java.util.Arrays;
-import java.io.PrintWriter;
 import java.util.Scanner;
-import java.io.PrintStream;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+
 public class GetInputSimple {
   public static void main(String[] args) {
     System.out.println("Hello User! This is the Code Explode Daily Planning App, or CEDPA");
@@ -13,7 +13,7 @@ public class GetInputSimple {
     String[][] schedule= new String[10][3];
     int i=0;
       Scanner Reader = new Scanner(System.in);
-
+    String schedulestring="";
       while (keepGoing) {
         System.out.println("What is the name of your class?");
         String class1=Reader.next();
@@ -23,6 +23,9 @@ public class GetInputSimple {
         schedule[i][1]=time;
         String day = AskDay();
         schedule[i][0]=day;
+        schedulestring=Arrays.toString(schedule[i]);
+        schedulestring=schedulestring.substring(1,schedulestring.length()-1);
+        WriteToFile(schedulestring);
         i++;
 
         boolean keepGoing2=true;
@@ -34,7 +37,9 @@ public class GetInputSimple {
             schedule[i][1]=schedule[i-1][1];
             day = AskDay();
             schedule[i][0]=day;
-            System.out.println(Arrays.toString(schedule[i]));
+            schedulestring=Arrays.toString(schedule[i]);
+            schedulestring=schedulestring.substring(1,schedulestring.length()-1);
+            WriteToFile(schedulestring);
             i++;
           }
           else{
@@ -51,7 +56,6 @@ public class GetInputSimple {
         }
       }
       Reader.close();
-      WriteToFile(schedule);
   }
 
   public static String AskDay() {
@@ -72,14 +76,15 @@ public class GetInputSimple {
       return day;
   }
 
-  public static void WriteToFile(String[][] classDayTime){
-    try {
-        File classes = new File ("classes.txt");
-        PrintStream printing = new PrintStream("classes.txt", "UTF-8");
-        System.setOut(printing);
-        System.out.println(classDayTime);
-    }catch (Exception e) {
-        System.out.println("Error in WriteToFile:" + e);// printstream
-    }
+  public static void WriteToFile(String classDayTime){
+      try {
+          File file = new File("classes.txt");
+          FileWriter writer = new FileWriter(file, true);
+          writer.write(classDayTime + "\n");
+          writer.close();
+      } catch (Exception e) {
+          System.out.println("Error in WriteToFile:" + e);// printstream
+      }
+
   }
 }

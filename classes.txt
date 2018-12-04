@@ -1,6 +1,2 @@
-<<<<<<< HEAD
-[[Ljava.lang.String;@6b71769e
-=======
-art 12 tue
-Math 2 mon
->>>>>>> b96b0bd61664ebd55833a5e2317632d4d16d4dac
+mon, 7, PLEASE
+tue, 7, PLEASE
