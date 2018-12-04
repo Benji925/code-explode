@@ -65,25 +65,25 @@ public class ArrayMaker{
 
   public static String whatday(int day){
     if(day==1){
-      return "Sun";
+      return "sun";
     }
     if(day==2){
-      return "Mon";
+      return "mon";
     }
     if(day==3){
-      return "Tue";
+      return "tue";
     }
     if(day==4){
-      return "Wed";
+      return "wed";
     }
     if(day==5){
-      return "Thu";
+      return "thu";
     }
     if(day==6){
-      return "Fri";
+      return "fri";
     }
     if(day==7){
-      return "Sat";
+      return "sat";
     }
     return "error!";
   }
