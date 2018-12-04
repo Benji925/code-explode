@@ -1,8 +1,7 @@
 import java.time.DayOfWeek;
 import java.util.Arrays;
-import java.io.PrintWriter;
+import java.io.FileWriter;
 import java.util.Scanner;
-import java.io.PrintStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 public class GetInput {
@@ -95,11 +94,11 @@ public class GetInput {
 
     public static void WriteToFile(String classDayTime){
         try {
-            File classes = new File ("classes.txt");
-            PrintStream printing = new PrintStream("classes.txt", "UTF-8");
-            System.setOut(printing);
-            System.out.println(classDayTime);
-        }catch (Exception e) {
+            File file = new File("classes.txt");
+            FileWriter writer = new FileWriter(file, true);
+            writer.write(classDayTime + "\n");
+            writer.close();
+        } catch (Exception e) {
             System.out.println("Error in WriteToFile:" + e);// printstream
         }
 
