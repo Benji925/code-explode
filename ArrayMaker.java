@@ -51,11 +51,13 @@ public class ArrayMaker{
     catch(FileNotFoundException e){
       System.out.println("Didn't find the file. Please try again.");
     }
-    int todaynum= Calendar.DAY_OF_WEEK;
+    Calendar now = Calendar.getInstance();
+    int todaynum= now.get(Calendar.DAY_OF_WEEK);
     String date=whatday(todaynum);
     for(int j=0; j<schedule.length; j++){
       String classdate=schedule[j][0];
       if(classdate.equals(date)){
+
         System.out.println(Arrays.toString(schedule[j]));
       }
     }
@@ -63,25 +65,25 @@ public class ArrayMaker{
 
   public static String whatday(int day){
     if(day==1){
-      return "Mon";
+      return "Sun";
     }
     if(day==2){
-      return "Tue";
+      return "Mon";
     }
     if(day==3){
-      return "Wed";
+      return "Tue";
     }
     if(day==4){
-      return "Thu";
+      return "Wed";
     }
     if(day==5){
-      return "Fri";
+      return "Thu";
     }
     if(day==6){
-      return "Sat";
+      return "Fri";
     }
     if(day==7){
-      return "Sun";
+      return "Sat";
     }
     return "error!";
   }
