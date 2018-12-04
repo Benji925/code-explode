@@ -69,6 +69,7 @@ public class ArrayMaker{
         System.out.println();
       }
     }
+<<<<<<< HEAD
     File fileName2 = new File("Quotes.txt");
     try {
       Scanner fileReader = new Scanner(fileName2);
@@ -85,8 +86,25 @@ public class ArrayMaker{
     }
     catch(FileNotFoundException e){
       System.out.println("Have a wonderful day!");
+=======
+    // String quote=Getquote();
+    // System.out.println(quote);
+    getWeatherWithZipCode();
+  }
+  public static String Getquote(){
+    Scanner fileReader = new Scanner("Quotes.txt");
+    java.util.Random rand = new java.util.Random();
+    int num=rand.nextInt(74);
+    String read1=" ";
+    for(int i=0;i<num;i++){
+      read1=fileReader.nextLine();
+>>>>>>> 88e69b29eddc3b89a46f5caf8ddab00149e8e24d
     }
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 88e69b29eddc3b89a46f5caf8ddab00149e8e24d
   //take the current date given by the calendar function as an
   // integer and make it into a string to match the array data
   public static String whatday(int day){
@@ -113,5 +131,25 @@ public class ArrayMaker{
     }
     return "error!";
   }
-
+  public static void getWeatherWithZipCode(){
+    System.out.println();
+    System.out.println("Would you like to get the weather? Enter your zipcode or type 'no'");
+    String zipcode = TextIO.getln();
+    if (zipcode.equals("no")){
+      System.out.println("Have a nice day!");
+    }
+    else {
+      try {
+        //sends user's zipcode to getWeather() in class APIdemo.
+        //getWeather() calls weather from openweathermap.org/current and returns weather for user's zipcode.
+        Weather w = APIdemo.getWeather(zipcode);
+        System.out.printf("Here is the weather info for %s:%n",zipcode);
+        System.out.printf("The current temperature is %.1f F,",APIdemo.k2f(w.main.temp)); // prints current temp.
+        System.out.printf(" with %s. %n",w.weather.get(0).description); //prints description of current weather
+        System.out.println("Have a nice day!");
+      } catch (Exception ex) {
+        System.out.println("Error: cannot retrieve weather information for "+zipcode);
+      }
+    }
+  }
 }
