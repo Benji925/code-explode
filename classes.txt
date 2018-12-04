@@ -1,1 +1,2 @@
-art 3 thu
+math 12 mon
+Do you have another class?
