@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 
 
-public class ArrayMaker{
+public class ArrayMakerDifferent{
   public static void main(String[] args){
     Scanner userInput = new Scanner(System.in);
     File fileName = new File("classes.txt");
@@ -32,21 +32,17 @@ public class ArrayMaker{
       }
       //create a 2-D array of the right size and fill in the user's schedule
       //with separate lines for class, date, and time
-    String[][] schedule= new String[counter][3];
+    String[] schedule= new String[counter];
 
     try {
       Scanner fileReader = new Scanner(fileName);
-
-        for(int i=0;i<schedule.length;i++){
-          String class1= fileReader.next();
-          schedule[i][2]=class1;
-          String time = fileReader.next();
-          schedule[i][1]=time;
-          String day = fileReader.next();
-          schedule[i][0]=day;
+      for(int i=0;i<schedule.length;i++){
+        String Sentence=fileReader.nextLine();
+        schedule[i] = Sentence.split(" ");
 
         }
         fileReader.close();
+        System.out.println(Arrays.deepToString(schedule));
       }
 
 
@@ -64,7 +60,6 @@ public class ArrayMaker{
       System.out.println(classdate);
       System.out.println(date);
       if(classdate.equals(date)){
-
         System.out.println(Arrays.toString(schedule[j]));
       }
     }
