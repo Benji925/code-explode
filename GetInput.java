@@ -1,10 +1,12 @@
 import java.time.DayOfWeek;
 import java.util.Arrays;
 import java.io.PrintWriter;
+import java.util.Scanner;
 public class GetInput {
     public static void main(String[] args) {
         //This introduces the app
         System.out.println("Hello User! This is the Code Explode Daily Planning App, or CEDPA");
+        Scanner reader = new Scanner(System.in);
         boolean keepGoing = true;
         String[] classes = new String[25];
         String[] timeStart = new String[25];
@@ -31,23 +33,33 @@ public class GetInput {
                 }
                 meetAgain = AnotherDay();
                 WriteToFile(classes[i]);
-                System.out.println("Do you have another class?");
+
             }
+            System.out.println("Do you have another class?");
+            String anotherClass = reader.nextLine();
+            if (anotherClass.equals("yes")) {
+                keepGoing = true;
+            } else {
+                keepGoing = false;
+            }
+            i++;
         }
     }
 
     public static String getClasses() {
+        Scanner reader = new Scanner(System.in);
         System.out.println("What is the name of your class?");
-        String schoolClass = TextIO.getlnString();
+        String schoolClass = reader.nextLine();
         return schoolClass;
     }
 
     public static String AskDay() {
+        Scanner reader = new Scanner(System.in);
         boolean right = false;
         String day = " ";
         while (!right) {
             System.out.println("What day does the class meet? (enter the three letter abbreviation, ex thu.)");
-            String check = TextIO.getWord();
+            String check = reader.next();
             if (check.equals("sun") || check.equals("mon") || check.equals("tue") || check.equals("wed") || check.equals("thu") || check.equals("fri") || check.equals("sat")) {
                 day = check;
                 right = true;
@@ -60,18 +72,30 @@ public class GetInput {
     }
 
     public static boolean AnotherDay() {
+        Scanner reader = new Scanner(System.in);
         System.out.println("Does the class meet another day?");
-        boolean meetAgain = TextIO.getlnBoolean();
-        return meetAgain;
+        String meetAgain = reader.nextLine();
+        boolean returns;
+        if (meetAgain.equals("yes")) {
+            returns = true;
+        }else {
+            returns = false;
+        }
+        return returns;
     }
 
     public static String startTime() {
+        Scanner reader = new Scanner(System.in);
         System.out.println("What time does the class start?");
-        String start = TextIO.getlnString();
+        String start = reader.nextLine();
         return start;
     }
 
     public static void WriteToFile(String classDayTime){
+        Scanner readLine = new Scanner("classes.txt");
+        while (readLine.hasNextLine()) {
+            readLine.nextLine();
+        }
         try {
             PrintWriter writer = new PrintWriter("classes.txt", "UTF-8");
             writer.write(classDayTime);
@@ -79,5 +103,6 @@ public class GetInput {
         }catch (Exception e) {
             System.out.println("Error in WriteToFile:" + e);
         }
+
     }
 }
