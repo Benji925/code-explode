@@ -68,7 +68,23 @@ public class ArrayMaker{
         System.out.println();
       }
     }
+    String quote=Getquote();
+    System.out.println(quote);
   }
+  public static String Getquote(){
+    Scanner fileReader = new Scanner("Quotes.txt");
+    java.util.Random rand = new java.util.Random();
+    int num=rand.nextInt(74);
+    String read1=" ";
+    for(int i=0;i<num;i++){
+      read1=fileReader.nextLine();
+    }
+    return read1;
+  }
+
+
+
+
     //take the current date given by the calendar function as an
     // integer and make it into a string to match the array data
   public static String whatday(int day){
