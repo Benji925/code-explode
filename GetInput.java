@@ -2,6 +2,9 @@ import java.time.DayOfWeek;
 import java.util.Arrays;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.io.PrintStream;
+import java.io.File;
+import java.io.FileNotFoundException;
 public class GetInput {
     public static void main(String[] args) {
         //This introduces the app
@@ -32,14 +35,15 @@ public class GetInput {
                     classes[i] = classes[i] + " sat";
                 }
                 meetAgain = AnotherDay();
-                WriteToFile(classes[i]);
 
             }
+            WriteToFile(classes[i]);
+
             System.out.println("Do you have another class?");
             String anotherClass = reader.nextLine();
             if (anotherClass.equals("yes")) {
                 keepGoing = true;
-            }else {
+            } else {
                 keepGoing = false;
             }
             i++;
@@ -75,11 +79,9 @@ public class GetInput {
         Scanner reader = new Scanner(System.in);
         System.out.println("Does the class meet another day?");
         String meetAgain = reader.nextLine();
-        boolean returns;
+        boolean returns = false;
         if (meetAgain.equals("yes")) {
             returns = true;
-        }else {
-            returns = false;
         }
         return returns;
     }
@@ -93,12 +95,13 @@ public class GetInput {
 
     public static void WriteToFile(String classDayTime){
         try {
-            PrintWriter writer = new PrintWriter("classes.txt", "UTF-8");
-            writer.println(classDayTime);
-            writer.println();
-            writer.close();
+            File classes = new File ("classes.txt");
+            PrintStream printing = new PrintStream("classes.txt", "UTF-8");
+            System.setOut(printing);
+            System.out.println(classDayTime);
         }catch (Exception e) {
-            System.out.println("Error in WriteToFile:" + e);
+            System.out.println("Error in WriteToFile:" + e);// printstream
         }
+
     }
 }
