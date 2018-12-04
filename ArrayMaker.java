@@ -69,6 +69,7 @@ public class ArrayMaker{
         System.out.println();
       }
     }
+    //This prints out a random inspirational quote from a file full of quotes!
     File fileName2 = new File("Quotes.txt");
     try {
       Scanner fileReader = new Scanner(fileName2);
