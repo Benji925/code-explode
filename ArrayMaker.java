@@ -61,8 +61,11 @@ public class ArrayMaker{
     for(int j=0; j<schedule.length; j++){
       String classdate=schedule[j][0];
       if(classdate.contains(date)){
-
-        System.out.println(Arrays.toString(schedule[j]));
+        System.out.print(" At ");
+        System.out.print(schedule[j][2]);
+        System.out.print(" you have ");
+        System.out.print(schedule[j][1]);
+        System.out.println();
       }
     }
   }
