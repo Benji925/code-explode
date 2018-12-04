@@ -9,7 +9,7 @@ public class ArrayMaker{
   public static void main(String[] args){
     Scanner userInput = new Scanner(System.in);
     File fileName = new File("classes.txt");
-//count how many lines are in the file (number of classes)
+    //count how many lines are in the file (number of classes)
     int counter = (1);
     boolean continue1 = (true);
     try {
@@ -24,29 +24,29 @@ public class ArrayMaker{
         }
         line1=fileReader.nextLine();
       }
-        fileReader.close();
-        }
+      fileReader.close();
+    }
 
-      catch(FileNotFoundException e){
-        System.out.println("Didn't find the file. Please try again.");
-      }
-      //create a 2-D array of the right size and fill in the user's schedule
-      //with separate lines for class, date, and time
+    catch(FileNotFoundException e){
+      System.out.println("Didn't find the file. Please try again.");
+    }
+    //create a 2-D array of the right size and fill in the user's schedule
+    //with separate lines for class, date, and time
     String[][] schedule= new String[counter][3];
 
     try {
       Scanner fileReader = new Scanner(fileName);
 
-        for(int i=0;i<schedule.length;i++){
-          String day = fileReader.next();
-          schedule[i][0]=day;
-          String class1= fileReader.next();
-          schedule[i][2]=class1;
-          String time = fileReader.next();
-          schedule[i][1]=time;
-        }
-        fileReader.close();
+      for(int i=0;i<schedule.length;i++){
+        String day = fileReader.next();
+        schedule[i][0]=day;
+        String class1= fileReader.next();
+        schedule[i][2]=class1;
+        String time = fileReader.next();
+        schedule[i][1]=time;
       }
+      fileReader.close();
+    }
 
 
     catch(FileNotFoundException e){
@@ -68,8 +68,9 @@ public class ArrayMaker{
         System.out.println();
       }
     }
-    String quote=Getquote();
-    System.out.println(quote);
+    // String quote=Getquote();
+    // System.out.println(quote);
+    getWeatherWithZipCode();
   }
   public static String Getquote(){
     Scanner fileReader = new Scanner("Quotes.txt");
@@ -82,11 +83,8 @@ public class ArrayMaker{
     return read1;
   }
 
-
-
-
-    //take the current date given by the calendar function as an
-    // integer and make it into a string to match the array data
+  //take the current date given by the calendar function as an
+  // integer and make it into a string to match the array data
   public static String whatday(int day){
     if(day==1){
       return "sun";
@@ -111,5 +109,25 @@ public class ArrayMaker{
     }
     return "error!";
   }
-
+  public static void getWeatherWithZipCode(){
+    System.out.println();
+    System.out.println("Would you like to get the weather? Enter your zipcode or type 'no'");
+    String zipcode = TextIO.getln();
+    if (zipcode.equals("no")){
+      System.out.println("Have a nice day!");
+    }
+    else {
+      try {
+        //sends user's zipcode to getWeather() in class APIdemo.
+        //getWeather() calls weather from openweathermap.org/current and returns weather for user's zipcode.
+        Weather w = APIdemo.getWeather(zipcode);
+        System.out.printf("Here is the weather info for %s:%n",zipcode);
+        System.out.printf("The current temperature is %.1f F,",APIdemo.k2f(w.main.temp)); // prints current temp.
+        System.out.printf(" with %s. %n",w.weather.get(0).description); //prints description of current weather
+        System.out.println("Have a nice day!");
+      } catch (Exception ex) {
+        System.out.println("Error: cannot retrieve weather information for "+zipcode);
+      }
+    }
+  }
 }
