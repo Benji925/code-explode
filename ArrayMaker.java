@@ -87,11 +87,11 @@ public class ArrayMaker{
     }
     catch(FileNotFoundException e){
       System.out.println("Have a wonderful day!");
-
-
-    //getWeatherWithZipCode();
   }
+
+  getWeatherWithZipCode();
 }
+
   //take the current date given by the calendar function as an
   // integer and make it into a string to match the array data
   public static String whatday(int day){
