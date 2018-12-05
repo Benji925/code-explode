@@ -118,25 +118,25 @@ public class ArrayMaker{
     }
     return "error!";
   }
-  // public static void getWeatherWithZipCode(){
-  //   System.out.println();
-  //   System.out.println("Would you like to get the weather? Enter your zipcode or type 'no'");
-  //   String zipcode = TextIO.getln();
-  //   if (zipcode.equals("no")){
-  //     System.out.println("Have a nice day!");
-  //   }
-  //   else {
-  //     try {
-  //       //sends user's zipcode to getWeather() in class APIdemo.
-  //       //getWeather() calls weather from openweathermap.org/current and returns weather for user's zipcode.
-  //       Weather w = APIdemo.getWeather(zipcode);
-  //       System.out.printf("Here is the weather info for %s:%n",zipcode);
-  //       System.out.printf("The current temperature is %.1f F,",APIdemo.k2f(w.main.temp)); // prints current temp.
-  //       System.out.printf(" with %s. %n",w.weather.get(0).description); //prints description of current weather
-  //       System.out.println("Have a nice day!");
-  //     } catch (Exception ex) {
-  //       System.out.println("Error: cannot retrieve weather information for "+zipcode);
-  //     }
-  //   }
-  // }
+  public static void getWeatherWithZipCode(){
+    System.out.println();
+    System.out.println("Would you like to get the weather? Enter your zipcode or type 'no'");
+    String zipcode = TextIO.getln();
+    if (zipcode.equals("no")){
+      System.out.println("Have a nice day!");
+    }
+    else {
+      try {
+        //sends user's zipcode to getWeather() in class APIdemo.
+        //getWeather() calls weather from openweathermap.org/current and returns weather for user's zipcode.
+        Weather w = APIdemo.getWeather(zipcode);
+        System.out.printf("Here is the weather info for %s:%n",zipcode);
+        System.out.printf("The current temperature is %.1f F,",APIdemo.k2f(w.main.temp)); // prints current temp.
+        System.out.printf(" with %s. %n",w.weather.get(0).description); //prints description of current weather
+        System.out.println("Have a nice day!");
+      } catch (Exception ex) {
+        System.out.println("Error: cannot retrieve weather information for "+zipcode);
+      }
+    }
+  }
 }
