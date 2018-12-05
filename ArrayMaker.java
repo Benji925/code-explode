@@ -69,6 +69,8 @@ public class ArrayMaker{
         System.out.println();
       }
     }
+    //Selects a random quote from a file of
+    //inspirational quotes for the day!
     File fileName2 = new File("Quotes.txt");
     try {
       Scanner fileReader = new Scanner(fileName2);
